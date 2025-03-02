@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISL Hand Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animation Overlay -->
+    <div id="animation-overlay" class="animation-overlay">
+        <div class="animation-content">
+            <h1 class="breaking-barriers">Breaking Barriers</h1>
+            <span class="blue-stripes" style="display: none;">Made by Blue Stripes</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="top-left-title">
+            <span class="main-title">Breaking Barriers</span>
+            <span class="sub-title">Made by Blue Stripes</span>
+        </div>
+        <h1 class="title">ISL Hand Detection</h1>
+        <div class="learn-isl-wrapper">
+            <button id="learn-isl-btn" class="btn btn-learn">Learn ISL</button>
+        </div>
+        <div class="button-wrapper">
+            <button id="start-btn" class="btn btn-start">Start Detection</button>
+            <button id="stop-btn" class="btn btn-stop" disabled>Stop Detection</button>
+        </div>
+        <div class="split-container">
+            <div id="video-container">
+                <video id="video" autoplay playsinline></video>
+                <canvas id="canvas"></canvas>
+                <div class="overlay"></div>
+            </div>
+            <div id="text-output">
+                <h2>Detected Text</h2>
+                <div class="text-container">
+                    <p id="detected-text">No gestures detected yet...</p>
+                    <p id="translated-text"></p>
+                    <p id="translation-language" class="translation-language">Language: English</p>
+                </div>
+                <div class="translation-wrapper">
+                    <select id="language-select">
+                        <option value="hi">Hindi</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="ta">Tamil</option>
+                        <option value="te">Telugu</option>
+                        <option value="bn">Bengali</option>
+                        <option value="gu">Gujarati</option>
+                        <option value="mr">Marathi</option>
+                        <option value="kn">Kannada</option>
+                    </select>
+                    <button id="translate-btn" class="btn btn-translate" style="display: none;">Translate</button>
+                </div>
+                <button id="readout-btn" class="btn btn-readout">Readout</button>
+            </div>
+        </div>
+    </div>
+    <!-- Use a specific version of MediaPipe Hands -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

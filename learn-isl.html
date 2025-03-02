@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Indian Sign Language (ISL)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animation Overlay -->
+    <div id="animation-overlay" class="animation-overlay">
+        <div class="animation-content">
+            <h1 class="breaking-barriers">Breaking Barriers</h1>
+            <span class="blue-stripes" style="display: none;">Made by Blue Stripes</span>
+        </div>
+    </div>
+
+    <div class="learn-container">
+        <h1 class="learn-title">Learn Indian Sign Language (ISL)</h1>
+        <a href="index.html" id="back-btn" class="btn btn-back">Back to Detection</a> <!-- Changed to button for consistency -->
+
+        <!-- Navigation Tabs for Sections (for better organization) -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="openTab('alphabet')">Alphabet & Numbers</button>
+            <button class="tab-button" onclick="openTab('importance')">Importance</button>
+            <button class="tab-button" onclick="openTab('basics')">Basics</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content" id="alphabet">
+            <section class="section">
+                <h2>ISL Alphabet (A to Z) & Numbers (1 to 9)</h2>
+                <p class="section-description">Explore the ISL hand gestures for letters A to Z and numbers 1 to 9 with our interactive chart.</p>
+                <div class="content-grid">
+                    <div class="image-card">
+                        <img src="isl-alphabet-chart.jpg" alt="ISL Alphabet and Numbers Chart: 1 to 9 and A to Z" class="isl-image">
+                        <p class="image-caption">A comprehensive chart showing ISL hand gestures for numbers 1–9 and letters A–Z.</p>
+                    </div>
+                    <div class="text-card">
+                        <p>Click or tap the image to zoom in for detailed viewing. Use this chart to practice and master ISL alphabets and numbers for effective communication with the Deaf community.</p>
+                        <button class="btn btn-info" onclick="zoomImage('isl-alphabet-chart.jpg')">Zoom Chart</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="tab-content" id="importance" style="display: none;">
+            <section class="section">
+                <h2>Importance of ISL</h2>
+                <p class="section-description">Discover how ISL empowers the Deaf community in India, promoting inclusion in education, employment, and daily life.</p>
+                <div class="content-grid">
+                    <div class="video-card">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/Q3CwDrBY3L8" frameborder="0" allowfullscreen></iframe>
+                        <p class="video-caption">"Importance of Indian Sign Language (ISL) in Education and Society" - Explores ISL's transformative role in enhancing communication and inclusion.</p>
+                    </div>
+                    <div class="text-card">
+                        <p>ISL is a vital tool for breaking communication barriers, fostering equality, and enriching the lives of Deaf individuals. Learn more about its impact through this video.</p>
+                        <button class="btn btn-info" onclick="playVideo('https://www.youtube.com/embed/Q3CwDrBY3L8')">Replay Video</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="tab-content" id="basics" style="display: none;">
+            <section class="section">
+                <h2>Basics of ISL</h2>
+                <p class="section-description">Start your ISL journey with these foundational resources and gestures for beginners.</p>
+                <div class="content-grid">
+                    <div class="image-card">
+                        <img src="isl-basics-gestures.jpg" alt="Illustrations of Basic ISL Gestures: Hello, Goodbye, Please, Thank You, Yes, No" class="isl-image">
+                        <p class="image-caption">Illustrations of essential ISL gestures including Hello, Goodbye, Please, Thank You, Yes, and No.</p>
+                    </div>
+                    <div class="text-card">
+                        <p>Practice these core gestures to communicate effectively. Click the image to zoom and explore further.</p>
+                        <button class="btn btn-info" onclick="zoomImage('isl-basics-gestures.jpg')">Zoom Gestures</button>
+                    </div>
+                </div>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/iLq3XfxdZgc" frameborder="0" allowfullscreen></iframe>
+                        <p class="video-caption">"Learn Indian Sign Language Basics" - Covers alphabets, numbers, etc. (2017).</p>
+                        <button class="btn btn-info" onclick="playVideo('https://www.youtube.com/embed/iLq3XfxdZgc')">Replay Video</button>
+                    </div>
+                    <div class="video-card">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/VtbYvVDItvg" frameborder="0" allowfullscreen></iframe>
+                        <p class="video-caption">"Learn Basic Indian Sign Language (ISL) for Beginners" - A beginner-friendly tutorial on essential ISL signs.</p>
+                        <button class="btn btn-info" onclick="playVideo('https://www.youtube.com/embed/VtbYvVDItvg')">Replay Video</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // JavaScript for tab navigation and interactive features
+        function openTab(tabName) {
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].style.display = 'none';
+            }
+            document.getElementById(tabName).style.display = 'block';
+
+            const tabButtons = document.getElementsByClassName('tab-button');
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('active');
+            }
+            event.currentTarget.classList.add('active');
+        }
+
+        // Function to zoom images (simple modal approach)
+        function zoomImage(src) {
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <span class="modal-close" onclick="document.body.removeChild(this.parentElement.parentElement)">×</span>
+                    <img src="${src}" alt="Zoomed ISL Image" class="modal-image">
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // Function to replay videos
+        function playVideo(url) {
+            const video = document.querySelector(`iframe[src="${url}"]`);
+            if (video) {
+                video.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+            }
+        }
+
+        // Ensure the back button works
+        document.getElementById('back-btn').addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+            window.location.href = 'index.html';
+        });
+
+        // Initialize with the first tab active
+        document.addEventListener('DOMContentLoaded', () => {
+            openTab('alphabet');
+        });
+    </script>
+</body>
+</html>
